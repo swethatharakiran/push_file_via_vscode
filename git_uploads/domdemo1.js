@@ -22,3 +22,11 @@ var h2=document.getElementsByClassName("title");
 console.log(h2)
 h2[0].style.fontWeight="bold";
 h2[0].style.color="green";
+var items=document.getElementsByClassName("list-group-item");
+items[2].style.backgroundColor="green";
+
+for (let i =0; i<items.length;i++)
+{
+    items[i].style.fontWeight="bold";
+    items[i].style.color="blue";
+}
