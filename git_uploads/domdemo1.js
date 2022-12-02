@@ -36,3 +36,17 @@ for (let i=0;i<li.length;i++)
     li[i].style.color="red";
     li[i].style.backgroundColor="gray";
 }
+
+//task3
+var item=document.querySelector('li:nth-child(2)');
+item.style.backgroundColor="green";
+var item=document.querySelector('li:nth-child(4)');
+item.style.visibility="hidden";
+var items=document.querySelectorAll('li');
+items[1].style.color="blue";
+var li=document.querySelectorAll('li:nth-child(odd)');
+for(let i=0;i<li.length;i++)
+{
+    li[i].style.backgroundColor="pink";
+}
+
