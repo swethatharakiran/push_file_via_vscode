@@ -50,3 +50,30 @@ for(let i=0;i<li.length;i++)
     li[i].style.backgroundColor="pink";
 }
 
+var parele=document.querySelector('#items');
+//task4
+console.log(parele.parentElement);
+console.log(parele.lastElementChild);
+console.log(parele.lastChild);
+console.log(parele.firstElementChild);
+console.log(parele.firstChild);
+console.log(parele.nextSibling);
+console.log(parele.previousSibling);
+console.log(parele.nextElementSibling);
+console.log(parele.previousElementSibling);
+var newdiv=document.createElement('div');
+console.log(newdiv);
+newdiv.setAttribute("class", "hello");
+newdiv.setAttribute("id","hw");
+var newtext=document.createTextNode("HEllo");
+console.log(newtext)
+newdiv.appendChild(newtext);
+console.log(newdiv);
+var container=document.querySelector("header .container");
+var h1=document.querySelector("header h1");
+container.insertBefore(newdiv,h1);
+var par=document.querySelector("div ul");
+var ul=document.querySelector("ul li");
+par.insertBefore(newtext,ul);
+
+
