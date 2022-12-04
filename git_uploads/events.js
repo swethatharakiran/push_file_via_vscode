@@ -26,7 +26,13 @@ function addItem(e){
   li.appendChild(document.createTextNode(newItem));
   li.appendChild(document.createTextNode(descr));
 
-  localStorage.setItem(newItem,descr);
+  //localStorage.setItem(newItem,descr);
+  let my_obj={
+    item_name:newItem,
+    desc:descr
+  }
+  let obj_serialized=JSON.stringify(my_obj);
+  localStorage.setItem(my_obj.item_name,obj_serialized);
   
 
   // Create del button element
