@@ -26,6 +26,9 @@ function addItem(e){
   li.appendChild(document.createTextNode(newItem));
   li.appendChild(document.createTextNode(descr));
 
+  localStorage.setItem(newItem,descr);
+  
+
   // Create del button element
   var deleteBtn = document.createElement('button');
 
