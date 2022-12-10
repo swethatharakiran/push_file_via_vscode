@@ -32,6 +32,9 @@ function onsubmit(e){
     var name1=obj.uname;
     var emailid=obj.mailid;
     var phone1=obj.phone;
+    var id=obj._id;
+
+
 
     li.appendChild(document.createTextNode(name1));
     li.appendChild(document.createTextNode(" "));
@@ -44,9 +47,9 @@ function onsubmit(e){
     var btn2=document.createElement('button');
     btn2.textContent="delete";
     btn2.className="btn"
-    li.id=obj._id;
-    btn2.setAttribute("onclick",`ondelete(${li.id})`);
-    btn.setAttribute("onclick",`onedit(${li.id}})`);
+    li.id=id;
+    btn2.setAttribute("onclick",`ondelete('${id}')`);
+    btn.setAttribute("onclick",`onedit('${id}')`);
     li.appendChild(btn);
     li.appendChild(btn2);
     ul.appendChild(li);
@@ -70,7 +73,7 @@ function ondelete(id1){
     var childnode=document.getElementById(id1);
     ul.removeChild(childnode);
     //localStorage.removeItem(id1);
-    axios.delete('https://crudcrud.com/api/bba7352ac1a2477098ee11ba8bff6be7/book-app/id1')
+    axios.delete(`https://crudcrud.com/api/bba7352ac1a2477098ee11ba8bff6be7/book-app/${id1}`)
     .then(response=>console.log(response.data))
     .catch(e=>console.log(e));
 }
@@ -85,5 +88,20 @@ window.addEventListener("DOMContentLoaded",()=>{
 })
 
 function onedit(id2){
-    var li=getElementById(id2);
+    axios.get(`https://crudcrud.com/api/bba7352ac1a2477098ee11ba8bff6be7/book-app/${id2}`)
+    .then(response=>{
+        console.log(response.data.uname);
+        name1=response.data.uname;
+        mail1=response.data.mailid;
+        phone1=response.data.phone;
+        document.getElementById("name").value=name1;
+    document.getElementById("email").value=mail1;
+    document.getElementById("phone").value=phone1;
+    
+    ondelete(id2);
+    })
+    .catch(e=>console.log(e))
+    
+
+
 }
